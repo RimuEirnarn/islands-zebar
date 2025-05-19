@@ -26,6 +26,23 @@ export default function App() {
     providers.onOutput(() => setOutput(providers.outputMap));
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      try {
+        const data = await (await fetch("http://127.0.0.1:9100/mem")).json()
+        if (data.memory_mb > 1024) {
+          alert("Zebar child mem has reached 1GB, attempting process kill")
+          await fetch('http://127.0.0.1:9100/kill')
+        }
+      } catch (_) {
+        console.error("[Rimu/Restart Service] service unavailable")
+      }
+    }, 1000 * (60 * 5))
+
+    return () => clearInterval(interval)
+  })
+
+
   return (
     <div className="app">
       <MediaIsland />

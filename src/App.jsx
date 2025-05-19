@@ -26,7 +26,6 @@ export default function App() {
     providers.onOutput(() => setOutput(providers.outputMap));
   }, []);
 
-  console.log(output)
   return (
     <div className="app">
       <MediaIsland />

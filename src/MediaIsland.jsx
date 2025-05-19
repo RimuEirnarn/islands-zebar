@@ -37,7 +37,7 @@ async function vlcFetchPlaylist(callbackset) {
     if (res.ok) {
       const obj = await makeVlcPlaylistObj(res)
       callbackset(obj)
-      console.log("[Rimu/VLC] Fetching playlist (playlist.json)", obj)
+      console.debug("[Rimu/VLC] Fetching playlist (playlist.json)", obj)
     } else {
       callbackset(null)
     }
@@ -54,7 +54,7 @@ async function vlcFetch(callbackset) {
     if (res.ok) {
       const obj = await makeVlcObject(res)
       callbackset(obj)
-      console.log("[Rimu/VLC] Fetching data (status.json)", obj)
+      console.debug("[Rimu/VLC] Fetching data (status.json)", obj)
     } else {
       callbackset(DUMMY_MEDIA)
     }

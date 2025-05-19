@@ -16,7 +16,7 @@ const providers = zebar.createProviderGroup({
   memory: { type: 'memory' },
   weather: { type: 'weather' },
   audio: { type: 'audio' },
-  media: { type: 'media' }
+  media: { type: 'media' },
 });
 
 export default function App() {

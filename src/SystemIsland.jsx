@@ -1,3 +1,4 @@
+import Disk from "./component/Disk";
 import { formatNumber } from "./utils";
 
 // Get icon to show for current network status.
@@ -106,13 +107,27 @@ const OUTPUT_DEFAULT = {
   weather: {
     status: "clear_day",
     celsiusTemp: NaN
+  },
+  disk: {
+    disks: [{
+      mountPoint: "A:\\",
+      totalSpace: {
+        siValue: NaN,
+        siUnit: "kB"
+      },
+      availableSpace: {
+        siValue: NaN,
+        siUnit: 'kB'
+      },
+      drive: "???"
+    }]
   }
 }
 
 export default function SystemIsland(out) {
   const output = out.network ? out : OUTPUT_DEFAULT
 
-  const {network, memory, cpu, battery, weather } = output
+  const { network, memory, cpu, battery, weather } = output
   return <div className="right">
     {network && (
       <div className="network">

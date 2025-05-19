@@ -63,14 +63,14 @@ async function vlcFetch(callbackset) {
   }
 }
 
-async function handleSeek(e) {
-  if (!vlcMedia || typeof vlcMedia?.meta.length !== 'number') return
+async function handleSeek(media, e) {
+  if (!media || typeof media?.meta.length !== 'number') return
 
   const rect = e.currentTarget.getBoundingClientRect()
   const clickX = e.clientX - rect.left
   const width = rect.width
   const percent = clickX / width
-  const seekTime = vlcMedia.meta.length * percent
+  const seekTime = media.meta.length * percent
 
   try {
     await vlcCommand(`seek&val=${Math.floor(seekTime)}`)
@@ -196,6 +196,7 @@ export default function MediaIsland() {
   const plNext = () => playNext(setMedia, setVlcPlaylist)
   const plPrev = () => playPrevious(setMedia, setVlcPlaylist)
   const tglPlay = () => togglePlayPause(setMedia, setVlcPlaylist)
+  const seek = (e) => handleSeek(vlcMedia, e)
 
   return (
     <div className="left">
@@ -206,7 +207,7 @@ export default function MediaIsland() {
               <div className="playback-info">
                 <i className="nf nf-md-music_note"></i> {truncate(vlcMedia.title, MAX_PLAYBACK_LENGTH)} | {formatNumber(vlcMedia.meta.progress * 100)}% {`(${vlcPlaylist ? getCurrentPlaylistIndex(vlcMedia.meta.name, vlcPlaylist) : -1}/${vlcPlaylist?.length || -1})`}
               </div>
-              <div className="vlc-progress-container-child" onClick={handleSeek}>
+              <div className="vlc-progress-container-child" onClick={seek}>
                 <div className={`vlc-progress-bar ${vlcMedia.isPlaying ? 'pulse' : 'paused'}`} style={{ width: `${Math.min(100, Math.max(0, vlcMedia.meta.progress * 100))}%` }}></div>
                 <div className="vlc-progress-hover"></div>
               </div>

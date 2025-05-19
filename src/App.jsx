@@ -30,6 +30,7 @@ export default function App() {
     const interval = setInterval(async () => {
       try {
         const data = await (await fetch("http://127.0.0.1:9100/mem")).json()
+        console.log("[Rimu/Restart Service] Webview RAM Usage: ", data.memory_mb, "MB")
         if (data.memory_mb > 1024) {
           alert("Zebar child mem has reached 1GB, attempting process kill")
           await fetch('http://127.0.0.1:9100/kill')
@@ -40,7 +41,7 @@ export default function App() {
     }, 1000 * (60 * 5))
 
     return () => clearInterval(interval)
-  })
+  }, [])
 
 
   return (

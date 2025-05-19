@@ -1,0 +1,347 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+  color: rgb(115 130 175 / 95%);
+  margin-right: 7px;
+}
+
+body {
+  color: rgb(255 255 255 / 90%);
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+div,
+span,
+p {
+  cursor: default;
+  user-select: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  border-bottom: 1px solid rgb(255 255 255 / 5%);
+  /* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
+  /* background: linear-gradient(rgb(0 0 0 / 40%), rgb(5 2 20 / 60%)); */
+  transition: background 1.5s ease-in-out;
+}
+
+#root:focus-visible, #root:focus, #root:hover {
+  background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%));
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+  background: rgba(0, 0, 0, 0);
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.confinement, .center, .right {
+  padding-top: clamp(0.25rem, 0.5rem, 0.75rem);
+  padding-bottom: clamp(0.25rem, 0.5rem, 0.75rem);
+  background: linear-gradient(rgb(0 0 0 / 40%), rgb(5 2 20 / 60%));
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: width 2s ease-in-out, height 2s ease-in-out, background 1.5s ease-in-out;
+}
+
+.confinement:hover, .center:hover, .right:hover {
+  background: linear-gradient(rgb(0 0 0 / 60%), rgb(5 2 20 / 80%));
+}
+
+
+.left, .confinement, .playback {
+  width: 100%;
+}
+
+.confinement {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+  min-width: 25.346%;
+}
+
+.right {
+  justify-self: end;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  min-width: 77%;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.paused-button,
+.network,
+.memory,
+.cpu,
+.battery,
+.audio,
+.system,
+.playback,
+.playback-prev,
+.playback-next,
+.playback-toggle,
+.playback-info {
+  margin-right: 20px;
+  border-radius: 8px;
+  /* background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%)); */
+  box-sizing: border-box;
+}
+
+.playback {
+  border-radius: 0;
+}
+
+.playback-info {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.playback, .confinement {
+  overflow: hidden;
+}
+
+.m0-right {
+  margin-right: 0;
+}
+
+.network {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.net-info,.net-io {
+  text-align: center;
+}
+
+.playback-next, .playback-prev, .playback-toggle {
+  cursor: pointer;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: rgb(255 255 255 / 5%);
+  margin-right: 4px;
+  padding: 4px 8px;
+  color: rgb(255 255 255 / 90%);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &.displayed {
+    background: rgb(255 255 255 / 15%);
+  }
+
+  &.focused,
+  &:hover {
+    background: rgb(75 115 255 / 50%);
+  }
+}
+
+.binding-mode,
+.tiling-direction,
+.paused-button {
+  background: rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 90%);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+
+.cpu .high-usage {
+  color: #900029;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
+
+.text-transparent-disco {
+  animation: pulse 1.5s infinite ease-in-out, glow-move 12s infinite alternate-reverse;
+  background: linear-gradient(90deg, #0ff, #f0f, #0ff, #f0f, #0ff);
+  color: transparent;
+  background-clip: text;
+}
+
+.vlc-progress-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  /* pointer-events: pointer; */
+  cursor: pointer;
+}
+
+.kill {
+  color: rgb(255 255 255 / 90%);
+  background: rgba(30, 30, 30, 0.25); /* translucent island feel */
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px) saturate(160%);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.kill:hover {
+  background: rgba(255, 80, 80, 0.25); /* slight danger red tint */
+  border-color: rgba(255, 80, 80, 0.4);
+  color: #fff;
+}
+
+.kill:active {
+  scale: 0.97;
+  opacity: 0.9;
+}
+
+.vlc-progress-container-child {
+  margin-top: 0.25rem;
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  /* pointer-events: pointer; */
+  cursor: pointer;
+}
+
+.vlc-progress-bar {
+  height: 100%;
+  /* background: linear-gradient(90deg, #0ff, #f0f, #0ff); */
+  background: linear-gradient(90deg, #0ff, #f0f, #0ff, #f0f, #0ff);
+  background-size: 300% 100%;
+  /* background: #0ff; */
+  transition: background 0.15s ease-in;
+  transition: width 0.15s ease-out, background 1.5s ease-in-out;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+  /* animation: pulse 2s infinite; */
+  /* transition: width 0.1s ease-in-out; */
+  /* transition: background 0.15s ease-in-out; */
+}
+
+.vlc-progress-bar.paused {
+  /* transition: background 0.15s ease-in-out; */
+  background: linear-gradient(90deg, #0ff, #0ff, #0ff);
+}
+
+.vlc-progress-bar.pulse {
+  animation: pulse 1.5s infinite ease-in-out, glow-move 12s infinite alternate-reverse;
+  box-shadow: 0 0 8px #0ff, 0 0 16px #f0f, 0 0 24px #0ff;
+}
+
+
+
+.vlc-progress-hover {
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.vlc-progress-container:hover .vlc-progress-hover {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    filter: brightness(1.2);
+  }
+
+  50% {
+    filter: brightness(2);
+  }
+
+  100% {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes glow-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+
+}
+
+@keyframes pulse-glow {
+  0% {
+    background-color: #0ff;
+    box-shadow: 0 0 5px #0ff;
+  }
+
+  50% {
+    background-color: #0ff;
+    box-shadow: 0 0 10px #0ff;
+  }
+
+  100% {
+    background-color: #0ff;
+    box-shadow: 0 0 5px #0ff;
+  }
+}
+

@@ -14,7 +14,7 @@
         "duration": 0
       },
       {
-        "urlRegex": "^http?:\\/\\/localhost:9100\\/",
+        "urlRegex": "^http?:\\/\\/localhost:9100\\/(mem|kill)",
         "duration": 0
       }
     ]

@@ -29,11 +29,11 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const data = await (await fetch("http://127.0.0.1:9100/mem")).json()
+        const data = await (await fetch(`http://localhost:9100/mem?ts=${new Date.now()}`)).json()
         console.log("[Rimu/Restart Service] Webview RAM Usage: ", data.memory_mb, "MB")
         if (data.memory_mb > 1024) {
           alert("Zebar child mem has reached 1GB, attempting process kill")
-          await fetch('http://127.0.0.1:9100/kill')
+          await fetch(`http://localhost:9100/kill?ts=${new Date.now()}`)
         }
       } catch (_) {
         console.error("[Rimu/Restart Service] service unavailable")

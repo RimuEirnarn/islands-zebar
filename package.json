@@ -2,7 +2,7 @@
   "name": "starter",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build --mode=devbuild",
     "build": "vite build"
   },
   "type": "module",

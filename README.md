@@ -10,6 +10,6 @@ Most services (e.g., `:9100`, `:12345`) are private custom endpoints. You’ll n
 
 ## Known Issues
 
-- **RAM Leak in Renderer**: The Webview Renderer’s memory usage increases gradually over time.  
-  - The app polls `:9100/mem` every 5 minutes.  
+- **RAM Leak in Renderer**: The Webview Renderer’s memory usage increases gradually over time.
+  - The app polls `:9100/mem` every 5 minutes.
   - If it detects the main process is using over 1GB RAM, it triggers a warning and calls `:9100/kill` to terminate Zebar’s webview process.

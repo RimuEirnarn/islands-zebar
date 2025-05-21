@@ -2,9 +2,9 @@ import {
   useState,
   useEffect,
 } from 'react';
-import PlaybackInfo from './component/media/PlaybackInfo';
-import PlaybackProgress from './component/media/PlaybackProgress';
-import PlaybackControl from './component/media/PlaybackControl';
+import PlaybackInfo from '../component/media/PlaybackInfo';
+import PlaybackProgress from '../component/media/PlaybackProgress';
+import PlaybackControl from '../component/media/PlaybackControl';
 
 const VLC_BASE_URL = 'http://localhost:12345/vlc/requests/status.json'
 const VLC_PLAYLIST = 'http://localhost:12345/vlc/requests/playlist.json'

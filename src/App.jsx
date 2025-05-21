@@ -2,9 +2,9 @@ import {
   useState,
   useEffect,
 } from 'react';
-import MediaIsland from "./MediaIsland"
-import DateIsland from "./DateIsland"
-import SystemIsland from "./SystemIsland"
+import MediaIsland from "./island/MediaIsland"
+import DateIsland from "./island/DateIsland"
+import SystemIsland from "./island/SystemIsland"
 import * as zebar from 'zebar';
 
 const providers = zebar.createProviderGroup({

@@ -1,8 +1,8 @@
-import Battery from "./component/system/Battery";
-import CPU from "./component/system/CPU";
-import Memory from "./component/system/Memory";
-import Network from "./component/system/Network";
-import Weather from "./component/system/Weather";
+import Battery from "../component/system/Battery";
+import CPU from "../component/system/CPU";
+import Memory from "../component/system/Memory";
+import Network from "../component/system/Network";
+import Weather from "../component/system/Weather";
 
 const OUTPUT_DEFAULT = {
   disk: {

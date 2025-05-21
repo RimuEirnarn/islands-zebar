@@ -2,9 +2,10 @@ import {
   useState,
   useEffect,
 } from 'react';
-import { truncate, formatNumber } from "./utils"
+import PlaybackInfo from './component/media/PlaybackInfo';
+import PlaybackProgress from './component/media/PlaybackProgress';
+import PlaybackControl from './component/media/PlaybackControl';
 
-const MAX_PLAYBACK_LENGTH = 55
 const VLC_BASE_URL = 'http://localhost:12345/vlc/requests/status.json'
 const VLC_PLAYLIST = 'http://localhost:12345/vlc/requests/playlist.json'
 const CONFIG_URL = 'http://localhost:12345/config.json'
@@ -98,15 +99,7 @@ async function playPrevious(callbackset, playset) {
   await vlcFetchPlaylist(playset)
 }
 
-function getCurrentPlaylistIndex(name, playlist) {
 
-  let index = 0
-  for (let value of playlist) {
-    if (value.name == name) return index;
-    index += 1
-  }
-  return -1
-}
 
 async function makeVlcObject(res) {
   const json = await res.json()
@@ -139,16 +132,7 @@ async function makeVlcPlaylistObj(res) {
   return mapped
 }
 
-/**
- * 
- * @param {boolean} playbackStatus 
- * @param {() => Promise<void>} callback 
- * @returns 
- */
-function getPlaybackIcon(playbackStatus, callback) {
-  return playbackStatus ? <i className="nf nf-fa-pause playback-toggle" onClick={callback}></i>
-    : <i className="nf nf-fa-play playback-toggle" onClick={callback}></i>
-}
+
 
 export default function MediaIsland() {
   const [vlcMedia, setMedia] = useState(DUMMY_MEDIA)
@@ -204,19 +188,10 @@ export default function MediaIsland() {
         {vlcMedia && (
           <>
             <div className="playback">
-              <div className="playback-info">
-                <i className="nf nf-md-music_note"></i> {truncate(vlcMedia.title, MAX_PLAYBACK_LENGTH)} | {formatNumber(vlcMedia.meta.progress * 100)}% {`(${vlcPlaylist ? getCurrentPlaylistIndex(vlcMedia.meta.name, vlcPlaylist) : -1}/${vlcPlaylist?.length || -1})`}
-              </div>
-              <div className="vlc-progress-container-child" onClick={seek}>
-                <div className={`vlc-progress-bar ${vlcMedia.isPlaying ? 'pulse' : 'paused'}`} style={{ width: `${Math.min(100, Math.max(0, vlcMedia.meta.progress * 100))}%` }}></div>
-                <div className="vlc-progress-hover"></div>
-              </div>
+              <PlaybackInfo media={vlcMedia} playlist={vlcPlaylist} />
+              <PlaybackProgress progress={vlcMedia.meta.progress} onSeek={seek} isPlaying={vlcMedia.isPlaying} />
             </div>
-            <div className='playback-control'>
-              <i className="nf nf-md-skip_previous playback-prev" onClick={plPrev}></i>
-              {getPlaybackIcon(vlcMedia.isPlaying, tglPlay)}
-              <i className="nf nf-md-skip_next playback-next m0-right" onClick={plNext}></i>
-            </div>
+            <PlaybackControl isPlaying={vlcMedia.isPlaying} plNext={plNext} plPrev={plPrev} tglPlay={tglPlay} />
           </>
         )}
       </div>

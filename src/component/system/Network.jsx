@@ -1,4 +1,4 @@
-import { getNetworkIcon, formatNumber } from "../utils"
+import { getNetworkIcon, formatNumber } from "../../utils"
 
 
 const DEFAULT = {
@@ -21,8 +21,8 @@ const DEFAULT = {
   }
 }
 
-export default function Network(proc) {
-  const network = proc?.data?.defaultInterface?.type ? proc.data: DEFAULT
+export default function Network({ data = DEFAULT }) {
+  const network = data
 
   return (
     <div className="network">

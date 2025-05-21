@@ -1,11 +1,11 @@
-import { formatNumber } from "../utils"
+import { formatNumber } from "../../utils"
 
 const DEFAULT = {
   usage: NaN
 }
 
-export default function Memory(proc) {
-  const memory = proc?.data?.usage ? proc.data : DEFAULT
+export default function Memory({ data = DEFAULT }) {
+  const memory = data
 
   return (
     <div className="memory">

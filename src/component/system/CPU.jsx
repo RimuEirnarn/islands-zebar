@@ -1,11 +1,11 @@
-import { formatNumber } from "../utils"
+import { formatNumber } from "../../utils"
 
 const DEFAULT = {
   usage: NaN
 }
 
-export default function CPU(proc) {
-  const cpu = proc?.data?.usage ? proc.data : DEFAULT
+export default function CPU({ data = DEFAULT }) {
+  const cpu = data
 
   return (
     <div className="cpu">

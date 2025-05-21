@@ -1,12 +1,12 @@
-import { formatNumber, getBatteryIcon } from "../utils";
+import { formatNumber, getBatteryIcon } from "../../utils";
 
 const DEFAULT = {
   isCharging: false,
   chargePercent: NaN
 }
 
-export default function Battery(proc) {
-  const battery = proc?.data?.chargePercent ? proc.data : DEFAULT
+export default function Battery({ data = DEFAULT }) {
+  const battery = data
 
   return (
     <div className="battery">

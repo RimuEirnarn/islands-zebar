@@ -9,7 +9,7 @@ import PlaybackControl from '../component/media/PlaybackControl';
 const VLC_BASE_URL = 'http://localhost:12345/vlc/requests/status.json'
 const VLC_PLAYLIST = 'http://localhost:12345/vlc/requests/playlist.json'
 const CONFIG_URL = 'http://localhost:12345/config.json'
-
+const MAX_DURATION = 750
 
 const DUMMY_MEDIA = {
   title: "VLC Interface is offline",
@@ -166,7 +166,7 @@ export default function MediaIsland() {
       await vlcFetch(setMedia); // do your thing
       const duration = performance.now() - start
       if (!isMounted) return;
-      timeout = setTimeout(fetchLoop, Math.max(0, 750 - duration)); // wait 500ms AFTER fetch
+      timeout = setTimeout(fetchLoop, Math.max(0, MAX_DURATION - duration)); // wait 500ms AFTER fetch
     };
 
     fetchLoop(); // kick it off

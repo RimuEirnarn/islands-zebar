@@ -6,7 +6,7 @@ const DEFAULT = {
 }
 
 export default function Battery({ data = DEFAULT }) {
-  console.log("[Rimu/Sub Components] ", data)
+  const battery = data || DEFAULT
 
   return (
     <div className="battery">

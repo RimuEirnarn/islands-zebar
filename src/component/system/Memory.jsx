@@ -5,7 +5,7 @@ const DEFAULT = {
 }
 
 export default function Memory({ data = DEFAULT }) {
-  const memory = data
+  const memory = data || DEFAULT
 
   return (
     <div className="memory">

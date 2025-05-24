@@ -166,7 +166,7 @@ export default function MediaIsland() {
       await vlcFetch(setMedia); // do your thing
       const duration = performance.now() - start
       if (!isMounted) return;
-      timeout = setTimeout(fetchLoop, Math.max(0, 200 - duration)); // wait 500ms AFTER fetch
+      timeout = setTimeout(fetchLoop, Math.max(0, 750 - duration)); // wait 500ms AFTER fetch
     };
 
     fetchLoop(); // kick it off

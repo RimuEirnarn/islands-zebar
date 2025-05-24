@@ -22,7 +22,7 @@ const DEFAULT = {
 }
 
 export default function Network({ data = DEFAULT }) {
-  const network = data
+  const network = data || DEFAULT
 
   return (
     <div className="network">

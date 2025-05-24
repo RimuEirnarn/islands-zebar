@@ -6,7 +6,7 @@ const DEFAULT = {
 }
 
 export default function Weather({ data = DEFAULT }) {
-  const weather = data
+  const weather = data || DEFAULT
 
   return (
     <div className="weather">

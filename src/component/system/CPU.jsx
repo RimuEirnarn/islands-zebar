@@ -5,7 +5,7 @@ const DEFAULT = {
 }
 
 export default function CPU({ data = DEFAULT }) {
-  const cpu = data
+  const cpu = data || DEFAULT
 
   return (
     <div className="cpu">

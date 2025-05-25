@@ -31,8 +31,8 @@ export default function Network({ data = DEFAULT }) {
         {network.defaultGateway.ssid}
       </div>
       <div className="net-io">
-        {formatNumber(network.traffic.received.siValue / 8)} {network.traffic.received.siUnit} ↓&nbsp;
-        {formatNumber(network.traffic.transmitted.siValue / 8)} {network.traffic.transmitted.siUnit} ↑
+        <span className="net-read">{formatNumber(network.traffic.received.siValue / 8)} {network.traffic.received.siUnit} ↓</span>&nbsp;
+        <span className="net-write">{formatNumber(network.traffic.transmitted.siValue / 8)} {network.traffic.transmitted.siUnit} ↑</span>
       </div>
     </div>
   )

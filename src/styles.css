@@ -150,6 +150,14 @@ body,
   text-align: center;
 }
 
+.net-write {
+  color: crimson;
+}
+
+.net-read {
+  color:chartreuse;
+}
+
 .playback-next, .playback-prev, .playback-toggle {
   cursor: pointer;
 }

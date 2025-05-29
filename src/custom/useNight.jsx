@@ -8,7 +8,6 @@ export default function useNightMode() {
     const checkTime = () => {
       const hour = new Date().getHours();
       setIsNight(hour >= 21 || hour < 5);
-      // setIsNight(true)
     };
 
     checkTime();

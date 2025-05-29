@@ -1,13 +1,15 @@
 // components/Stars.tsx
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Stars({ isNight }) {
   const canvasRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const fadingOut = useRef(false);
+  const opacityRef = useRef(1);
 
   useEffect(() => {
-    if (!isNight || !canvasRef.current) return;
-
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
     let animationId;
     let stars = Array.from({ length: 100 }, () => ({
@@ -32,6 +34,17 @@ export default function Stars({ isNight }) {
         if (star.o <= 0 || star.o >= 1) star.d = -star.d;
       });
 
+      if (fadingOut.current) {
+        opacityRef.current -= 0.01;
+        if (opacityRef.current <= 0) {
+          cancelAnimationFrame(animationId);
+          fadingOut.current = false;
+          opacityRef.current = 1;
+          setVisible(false);
+          return;
+        }
+      }
+
       animationId = requestAnimationFrame(draw);
     };
 
@@ -42,7 +55,17 @@ export default function Stars({ isNight }) {
     return () => cancelAnimationFrame(animationId);
   }, [isNight]);
 
-  if (!isNight) return null;
+  // Watch isNight changes
+  useEffect(() => {
+    if (isNight) {
+      setVisible(true);
+      fadingOut.current = false;
+      opacityRef.current = 1;
+    } else {
+      fadingOut.current = true;
+    }
+  }, [isNight]);
+
   return (
     <canvas
       ref={canvasRef}
@@ -52,6 +75,8 @@ export default function Stars({ isNight }) {
         left: 0,
         zIndex: -1,
         pointerEvents: "none",
+        opacity: visible ? 1 : 0,
+        transition: "opacity 0.5s ease-in-out"
       }}
     />
   );

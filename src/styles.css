@@ -102,7 +102,7 @@ body,
 
 .island.night {
   background: rgba(26, 26, 47, 0.75);
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
 }
 
 .center.night-glow {
@@ -126,6 +126,7 @@ body,
 .center {
   justify-self: center;
   min-width: 25.346%;
+  transition: box-shadow 2s ease-in-out;
 }
 
 .right {

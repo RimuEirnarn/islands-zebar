@@ -3,7 +3,6 @@ const DEFAULT_OBJ = {
 }
 
 export default function DateIsland({ date, isNight }) {
-  console.log(date)
   const output = date?.formatted ? date : DEFAULT_OBJ
 
   return <div className={`center island ${isNight ? 'night-glow' : ""}`}>

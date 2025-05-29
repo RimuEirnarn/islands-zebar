@@ -28,7 +28,7 @@ export default function Network({ data = DEFAULT }) {
     <div className="network">
       <div className="net-info">
         {getNetworkIcon(network)}
-        {network.defaultGateway.ssid}
+        {network?.defaultGateway?.ssid || "Unknown"}
       </div>
       <div className="net-io">
         <span className="net-read">{formatNumber(network.traffic.received.siValue / 8)} {network.traffic.received.siUnit} ↓</span>&nbsp;

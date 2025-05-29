@@ -134,7 +134,7 @@ async function makeVlcPlaylistObj(res) {
 
 
 
-export default function MediaIsland() {
+export default function MediaIsland({ isNight }) {
   const [vlcMedia, setMedia] = useState(DUMMY_MEDIA)
   const [vlcPlaylist, setVlcPlaylist] = useState(null)
 
@@ -184,7 +184,7 @@ export default function MediaIsland() {
 
   return (
     <div className="left">
-      <div className='confinement'>
+      <div className={`confinement island ${isNight ? 'night' : ""}`}>
         {vlcMedia && (
           <>
             <div className="playback">

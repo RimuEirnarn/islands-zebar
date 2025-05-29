@@ -9,8 +9,8 @@ const DEFAULT = {}
 export default function SystemIsland(proc) {
   const output = proc.network ? proc : DEFAULT
 
-  const { network, memory, cpu, battery, weather } = output
-  return <div className="right">
+  const { network, memory, cpu, battery, weather, isNight } = output
+  return <div className={`right island ${isNight ? 'night' : ""}`}>
     <Network data={network}/>
     <Memory data={memory}/>
     <CPU data={cpu}/>

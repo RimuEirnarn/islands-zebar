@@ -31,7 +31,7 @@ body,
   height: 100%;
 }
 
-#root {
+.app {
   /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
   /* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
   /* background: linear-gradient(rgb(0 0 0 / 40%), rgb(5 2 20 / 60%)); */
@@ -45,7 +45,9 @@ body,
   /* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
 /* } */
 
-
+.night {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
 
 .hidden {
   display: none !important;

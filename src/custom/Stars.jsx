@@ -73,7 +73,7 @@ export default function Stars({ isNight }) {
         position: "fixed",
         top: 0,
         left: 0,
-        zIndex: -1,
+        zIndex: 10,
         pointerEvents: "none",
         opacity: visible ? 1 : 0,
         transition: "opacity 0.5s ease-in-out"

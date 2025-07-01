@@ -7,7 +7,7 @@ export default function useNightMode() {
   useEffect(() => {
     const checkTime = () => {
       const hour = new Date().getHours();
-      setIsNight(hour >= 21 || hour < 5);
+      setIsNight(hour >= 19 || hour < 5);
     };
 
     checkTime();

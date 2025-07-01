@@ -1,13 +1,17 @@
 // hooks/useNightMode.ts
 import { useEffect, useState } from "react";
 
-export default function useNightMode() {
+function duringNight() {
+  const hour = new Date().getHours()
+  return hour >= 19 || hour < 5
+}
+
+function useNightMode() {
   const [isNight, setIsNight] = useState(false);
 
   useEffect(() => {
     const checkTime = () => {
-      const hour = new Date().getHours();
-      setIsNight(hour >= 19 || hour < 5);
+      setIsNight(duringNight);
     };
 
     checkTime();
@@ -16,5 +20,7 @@ export default function useNightMode() {
     return () => clearInterval(interval);
   }, []);
 
-  return isNight;
+  return [isNight, setIsNight];
 }
+
+export { duringNight, useNightMode }

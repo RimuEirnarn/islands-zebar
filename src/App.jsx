@@ -5,7 +5,7 @@ import {
 import MediaIsland from "./island/MediaIsland"
 import DateIsland from "./island/DateIsland"
 import SystemIsland from "./island/SystemIsland"
-import useNightMode from './custom/useNight';
+import { useNightMode, duringNight } from './custom/useNight';
 import Stars from './custom/Stars';
 import * as zebar from 'zebar';
 
@@ -23,7 +23,7 @@ const providers = zebar.createProviderGroup({
 
 export default function App() {
   const [output, setOutput] = useState(providers.outputMap)
-  const isNight = useNightMode()
+  const [isNight, setNight] = useNightMode()
 
   useEffect(() => {
     providers.onOutput(() => setOutput(providers.outputMap));
@@ -46,12 +46,16 @@ export default function App() {
     return () => clearInterval(interval)
   }, [])
 
+  function toggleNight() {
+    if (!duringNight) return;
+    return setNight(!isNight)
+  }
 
   return (
     <div className={`app ${isNight ? 'night' : ''}`}>
       <Stars isNight={isNight} />
       <MediaIsland isNight={isNight}/>
-      <DateIsland date={output.date} isNight={isNight}/>
+      <DateIsland date={output.date} isNight={isNight} click={toggleNight} clickable={duringNight()}/>
       <SystemIsland
         isNight={isNight}
         network={output.network}

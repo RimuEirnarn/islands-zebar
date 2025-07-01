@@ -11,7 +11,7 @@ function useNightMode() {
 
   useEffect(() => {
     const checkTime = () => {
-      setIsNight(duringNight);
+      setIsNight(duringNight());
     };
 
     checkTime();

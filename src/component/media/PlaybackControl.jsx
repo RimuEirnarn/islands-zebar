@@ -9,9 +9,9 @@ function getPlaybackIcon(playbackStatus, callback) {
     : <i className="nf nf-fa-play playback-toggle" onClick={callback}></i>
 }
 
-export default function PlaybackControl({ isPlaying, tglPlay, plPrev, plNext }) {
+export default function PlaybackControl({ isPlaying, tglPlay, plPrev, plNext, shouldHide }) {
   return (
-    <div className='playback-control'>
+    <div className={`playback-control ${shouldHide ? 'disappear' : ''}`}>
       <i className="nf nf-md-skip_previous playback-prev" onClick={plPrev}></i>
       {getPlaybackIcon(isPlaying, tglPlay)}
       <i className="nf nf-md-skip_next playback-next m0-right" onClick={plNext}></i>

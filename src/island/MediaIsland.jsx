@@ -182,16 +182,17 @@ export default function MediaIsland({ isNight }) {
   const tglPlay = () => togglePlayPause(setMedia, setVlcPlaylist)
   const seek = (e) => handleSeek(vlcMedia, e)
 
+  const NO_VLC = vlcMedia.title == DUMMY_MEDIA.title
   return (
     <div className="left">
       <div className={`confinement island ${isNight ? 'night' : ""}`}>
         {vlcMedia && (
           <>
-            <div className="playback">
+            <div className={`playback ${NO_VLC ? 'disappear' : ''}`}>
               <PlaybackInfo media={vlcMedia} playlist={vlcPlaylist} />
               <PlaybackProgress progress={vlcMedia.meta.progress} onSeek={seek} isPlaying={vlcMedia.isPlaying} />
             </div>
-            <PlaybackControl isPlaying={vlcMedia.isPlaying} plNext={plNext} plPrev={plPrev} tglPlay={tglPlay} />
+            <PlaybackControl isPlaying={vlcMedia.isPlaying} plNext={plNext} plPrev={plPrev} tglPlay={tglPlay} shouldHide={NO_VLC}/>
           </>
         )}
       </div>

@@ -4,7 +4,11 @@
  * @returns
  */
 function formatNumber(x) {
-  if (x.hasOwnProperty('toFixed') || x.toFixed) return x.toFixed(2)
+  if (x.hasOwnProperty('toFixed') || x.toFixed) {
+    const r = x.toFixed(2)
+    if (r.includes(".00")) return r.split('.')[0].padStart(6, " ");
+    return r.padStart(6, ' ');
+  }
   return x
 }
 

@@ -21,8 +21,40 @@ const DEFAULT = {
   }
 }
 
+const MAP = {
+  kB: [" B", "MB"],
+  MB: ["kB", "GB"],
+  GB: ['MB', "PB"]
+}
+
+/**
+ * mapper unit into desired unit type
+ * @param {string} unit
+ * @param {boolean} up
+ */
+function mapper(unit, up) {
+  if (!(unit in MAP)) return "??"
+  return MAP[unit][Number(up)]
+}
+
+/**
+ * Retransmit number into different unit value
+ * @param {number} value
+ * @param {string} unit
+ * @returns
+ */
+function reTransmit(value, unit) {
+  if (value < 1 && value > 0) return {value: formatNumber(value * 100), unit: mapper(unit, false)}
+  return {value: formatNumber(value), unit}
+}
+
 export default function Network({ data = DEFAULT }) {
   const network = data || DEFAULT
+  const TX = network.traffic.transmitted
+  const RX = network.traffic.received
+
+  const rx = reTransmit(RX.siValue / 8, RX.siUnit)
+  const tx = reTransmit(TX.siValue / 8, TX.siUnit)
 
   return (
     <div className="network">
@@ -31,8 +63,8 @@ export default function Network({ data = DEFAULT }) {
         {network?.defaultGateway?.ssid || "Unknown"}
       </div>
       <div className="net-io">
-        <span className="net-read">{formatNumber(network.traffic.received.siValue / 8)} {network.traffic.received.siUnit} ↓</span>&nbsp;
-        <span className="net-write">{formatNumber(network.traffic.transmitted.siValue / 8)} {network.traffic.transmitted.siUnit} ↑</span>
+        <span className="net-read">{rx.value} {rx.unit} ↓</span>&nbsp;
+        <span className="net-write">{tx.value} {tx.unit} ↑</span>
       </div>
     </div>
   )

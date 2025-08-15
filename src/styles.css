@@ -190,6 +190,7 @@ body,
 .net-info,
 .net-io {
   text-align: center;
+  min-width: 9.25rem;
 }
 
 .net-write {

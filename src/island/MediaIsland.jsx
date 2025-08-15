@@ -184,7 +184,7 @@ export default function MediaIsland({ isNight }) {
 
   const NO_VLC = vlcMedia.title == DUMMY_MEDIA.title
   return (
-    <div className="left">
+    <div className={`left ${NO_VLC ? 'disappear' : ''}`}>
       <div className={`confinement island ${isNight ? 'night' : ""}`}>
         {vlcMedia && (
           <>

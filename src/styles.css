@@ -27,6 +27,7 @@ html,
 body,
 #root {
   height: 100%;
+  --cursor-style: pointer;
 }
 
 .app {
@@ -53,6 +54,8 @@ body,
 
 .disappear {
   opacity: 0;
+  --cursor-style: default;
+  background: rgba(0, 0, 0, 0) !important;
 }
 
 .app {
@@ -162,6 +165,10 @@ body,
   box-sizing: border-box;
 }
 
+.playback-info {
+  opacity: 1;
+}
+
 .playback {
   border-radius: 0;
 }
@@ -206,7 +213,7 @@ body,
 .playback-next,
 .playback-prev,
 .playback-toggle {
-  cursor: pointer;
+  cursor: var(--cursor-style);
 }
 
 .workspaces {
@@ -317,7 +324,7 @@ body,
   background: rgba(255, 255, 255, 0.05);
   overflow: hidden;
   /* pointer-events: pointer; */
-  cursor: pointer;
+  cursor: var(--cursor-style);
 }
 
 .clickable {
@@ -334,7 +341,7 @@ body,
   transition: width 0.15s ease-out, background 1.5s ease-in-out;
   z-index: 1;
   position: relative;
-  cursor: pointer;
+  cursor: var(--cursor-style);
   /* animation: pulse 2s infinite; */
   /* transition: width 0.1s ease-in-out; */
   /* transition: background 0.15s ease-in-out; */

@@ -182,7 +182,8 @@ export default function MediaIsland({ isNight }) {
   const tglPlay = () => togglePlayPause(setMedia, setVlcPlaylist)
   const seek = (e) => handleSeek(vlcMedia, e)
 
-  const NO_VLC = vlcMedia.title == DUMMY_MEDIA.title
+  // const NO_VLC = vlcMedia.title == DUMMY_MEDIA.title
+  const NO_VLC = false
   return (
     <div className={`left ${NO_VLC ? 'disappear' : ''}`}>
       <div className={`confinement island ${isNight ? 'night' : ""}`}>

@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       })
     ],
     build: {
-      outDir: '../island-dist', // This is the default but explicit now
+      outDir: '../.glzr/zebar/island-dist', // This is the default but explicit now
       emptyOutDir: true, // Clean `dist/` before building
       sourcemap: mode !== 'production',
       minify: mode === 'production'

@@ -6,7 +6,7 @@ function getCurrentPlaylistIndex(name, playlist) {
 
   let index = 0
   for (let value of playlist) {
-    if (value.name == name) return index;
+    if (value.name == name) return index + 1;
     index += 1
   }
   return -1

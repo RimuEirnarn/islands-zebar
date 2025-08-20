@@ -391,8 +391,8 @@ body,
 
 .battery>span {
   position: absolute;
-  top: 8px;
-  right: 20px;
+  top: 6px;
+  right: 19px;
 }
 
 .battery .charging-icon {

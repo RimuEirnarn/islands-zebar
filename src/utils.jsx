@@ -58,14 +58,14 @@ function getNetworkIcon(networkOutput) {
 function getBatteryIcon(batteryOutput) {
   const chargePercent = batteryOutput?.chargePercent || 0
   if (chargePercent > 90)
-    return <i className="nf nf-fa-battery_4"></i>;
+    return <i className="nf nf-fa-battery_4 sys-icon-default"></i>;
   if (chargePercent > 70)
-    return <i className="nf nf-fa-battery_3"></i>;
+    return <i className="nf nf-fa-battery_3 sys-icon-default"></i>;
   if (chargePercent > 40)
-    return <i className="nf nf-fa-battery_2"></i>;
+    return <i className="nf nf-fa-battery_2 sys-icon-default"></i>;
   if (chargePercent > 20)
-    return <i className="nf nf-fa-battery_1"></i>;
-  return <i className="nf nf-fa-battery_0"></i>;
+    return <i className="nf nf-fa-battery_1 sys-icon-default"></i>;
+  return <i className="nf nf-fa-battery_0 sys-icon-default"></i>;
 }
 
 // Get icon to show for current weather status.

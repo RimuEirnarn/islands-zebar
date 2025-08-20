@@ -14,7 +14,7 @@ const providers = zebar.createProviderGroup({
   host: { type: 'host' },
   network: { type: 'network' },
   cpu: { type: 'cpu' },
-  date: { type: 'date', formatting: 'EEE d MMM TT' },
+  date: { type: 'date', formatting: 'EEEE, d/MM' },
   battery: { type: 'battery' },
   memory: { type: 'memory' },
   weather: { type: 'weather' },

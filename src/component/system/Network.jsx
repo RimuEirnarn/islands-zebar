@@ -57,14 +57,14 @@ export default function Network({ data = DEFAULT }) {
   const tx = reTransmit(TX.siValue / 8, TX.siUnit)
 
   return (
-    <div className="network">
-      <div className="net-info">
+    <div className="netgrid network">
+      <div className="div1 net-info">
         {getNetworkIcon(network)}
         {network?.defaultGateway?.ssid || "Unknown"}
       </div>
-      <div className="net-io">
-        <span className="net-read">{rx.value} {rx.unit} ↓</span>&nbsp;
-        <span className="net-write">{tx.value} {tx.unit} ↑</span>
+      <div className="div2 netiogrid net-io">
+        <span className="ndiv1 net-read">{rx.value} {rx.unit} ↓</span>
+        <span className="ndiv2 net-write">{tx.value} {tx.unit} ↑</span>
       </div>
     </div>
   )

@@ -12,6 +12,10 @@ export default defineConfig(({ mode }) => {
             src: 'config.json',
             dest: '', // root of dist/
             rename: 'islands.zebar.json'
+          },
+          {
+            src: 'public',
+            dest: ''
           }
         ]
       })

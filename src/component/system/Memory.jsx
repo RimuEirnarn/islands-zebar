@@ -11,7 +11,7 @@ export default function Memory({ data = DEFAULT }) {
     <div className="memory">
       <i className="nf nf-fae-chip"></i>
       <span className={memory.usage > 75 ? 'high-usage' : ''}>
-        {formatNumber(memory.usage)}%
+        {formatNumber(memory.usage)}% [MEM]
       </span>
     </div>
   )

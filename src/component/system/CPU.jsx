@@ -15,7 +15,7 @@ export default function CPU({ data = DEFAULT }) {
       <span
         className={cpu.usage > 75 ? 'high-usage' : ''}
       >
-        {formatNumber(cpu.usage)}%
+        {formatNumber(cpu.usage)}% [CPU]
       </span>
     </div>
   )

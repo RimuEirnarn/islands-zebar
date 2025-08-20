@@ -3,6 +3,7 @@
  * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
  */
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 
 i {
   color: rgb(115 130 175 / 95%);
@@ -11,7 +12,7 @@ i {
 
 body {
   color: rgb(255 255 255 / 90%);
-  font-family: ui-monospace, monospace;
+  font-family: ui-monospace, monospace, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 12px;
   overflow: hidden;
 }
@@ -28,25 +29,27 @@ body,
 #root {
   height: 100%;
   --cursor-style: pointer;
+  --root-margin: 6rem;
+  --ba-rad: 40px;
 }
 
-.app {
-  /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
-  /* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
-  /* background: linear-gradient(rgb(0 0 0 / 40%), rgb(5 2 20 / 60%)); */
-  background: rgba(0, 0, 0, 0.3);
-  transition: background 1.5s ease-in-out;
-}
+/* .app { */
+/* border-bottom: 1px solid rgb(255 255 255 / 5%); */
+/* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
+/* background: linear-gradient(rgb(0 0 0 / 40%), rgb(5 2 20 / 60%)); */
+/* background: rgba(0, 0, 0, 0.3); */
+/* /* transition: background 1.5s ease-in-out; */
+/* } */
 
 /* #root:focus-visible, */
 /* #root:focus, */
 /* #root:hover { */
-  /* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
+/* background: linear-gradient(rgb(0 0 0 / 5%), rgb(5 2 20 / 15%)); */
 /* } */
 
-.night {
-  background: rgba(0, 0, 0, 0.7) !important;
-}
+/* .night { */
+/* background: rgba(0, 0, 0, 0.7) !important; */
+/* } */
 
 .hidden {
   display: none !important;
@@ -64,7 +67,15 @@ body,
   align-items: center;
   height: 100%;
   padding: 4px 1.5vw;
-  background: rgba(0, 0, 0, 0);
+  /* margin-left: var(--root-margin); */
+  /* margin-right: var(--root-margin); */
+  background-color: #090040;
+  /* border-bottom-left-radius: var(--ba-rad); */
+  /* border-bottom-right-radius: var(--ba-rad); */
+}
+
+.cutout {
+  background-clip: border-box;
 }
 
 .left,
@@ -78,23 +89,23 @@ body,
 .confinement,
 .center,
 .right {
-  padding-top: clamp(0.25rem, 0.5rem, 0.75rem);
-  padding-bottom: clamp(0.25rem, 0.5rem, 0.75rem);
-  margin-bottom: 0.5rem;
+  /* padding-top: clamp(0.25rem, 0.5rem, 0.75rem); */
+  /* padding-bottom: clamp(0.25rem, 0.5rem, 0.75rem); */
+  /* margin-bottom: 0.5rem; */
   box-sizing: border-box;
   border-radius: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem; */
+  /* padding-right: 1rem; */
   transition: width 2s ease-in-out, height 2s ease-in-out, background 1.5s ease-in-out;
 }
 
-.glass, .confinement, .center, .right {
-  background: rgba(0, 0, 0, 0.3);
-  /* border-radius: 16px; */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
+/* .glass, .confinement, .center, .right { */
+/* background: rgba(0, 0, 0, 0.3); */
+/* border-radius: 16px; */
+/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+/* backdrop-filter: blur(8px); */
+/* -webkit-backdrop-filter: blur(8px); */
+/* } */
 
 .left,
 .confinement,
@@ -103,27 +114,34 @@ body,
 }
 
 #root.night {
-  background: rgba(10, 10, 15, 0.3);
+  /* background: rgba(10, 10, 15, 0.3); */
   color: #ccc;
   transition: background 0.5s ease;
 }
 
-.island.night {
-  background: rgba(26, 26, 47, 0.75);
+/* .island.night { */
+  /* background: rgba(26, 26, 47, 0.75); */
   /* border: 1px solid #333; */
-}
+/* } */
 
-.center.night-glow {
-  background: rgba(42, 42, 79, 0.75);
-  box-shadow: 0 0 12px 4px rgba(120, 200, 255, 0.3);
-  color: #fff;
+/* .center.night-glow { */
+  /* background: rgba(42, 42, 79, 0.75); */
+  /* box-shadow: 0 0 12px 4px rgba(120, 200, 255, 0.3); */
+  /* color: #fff; */
   /* font-weight: bold; */
-  animation: pulseDate 2s infinite ease-in-out;
-}
+  /* animation: pulseDate 2s infinite ease-in-out; */
+/* } */
 
 @keyframes pulseDate {
-  0%, 100% { box-shadow: 0 0 8px rgba(120, 200, 255, 0.2); }
-  50% { box-shadow: 0 0 18px rgba(120, 200, 255, 0.5); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(120, 200, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(120, 200, 255, 0.5);
+  }
 }
 
 .confinement {
@@ -141,7 +159,7 @@ body,
   justify-self: end;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  min-width: 77%;
+  /* min-width: 77%; */
 }
 
 .logo,
@@ -190,16 +208,36 @@ body,
   margin-right: 0;
 }
 
-.network {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+.net-io, .memory, .cpu {
+  font-family: 'Fira Code';
 }
+
+.clock, .date {
+  font-family: "Chewy", 'Roboto';
+}
+
+.playback-info, .net-info, .battery {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* .network { */
+/* display: flex; */
+/* flex-direction: column; */
+/* flex-wrap: wrap; */
+/* } */
 
 .net-info,
 .net-io {
-  text-align: center;
-  min-width: 9.25rem;
+  min-width: 4.75rem;
+}
+
+.net-info {
+  align-content: center;
+  text-align: start;
+}
+
+.net-io {
+  text-align: end;
 }
 
 .net-write {
@@ -240,6 +278,63 @@ body,
   }
 }
 
+.profile-img {
+  margin-right: 1rem;
+  border-radius: 2rem;
+}
+
+.clock {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.sysgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.sysgrid-span {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.network,
+.netgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.netgrid>.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.netgrid>.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.netiogrid,.n2rowgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.netiogrid>.ndiv1,.n2rowgrid>.ndiv1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.netiogrid>.ndiv2,.n2rowgrid>.ndiv2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+
+
 .binding-mode,
 .tiling-direction,
 .paused-button {
@@ -262,6 +357,26 @@ body,
 
 .battery {
   position: relative;
+  /* border-radius: 10rem; */
+  border-radius: 25px;
+  /* padding: 0.5rem 20px 0.5rem 20px; */;
+  height: 30px;
+  max-width: 6rem;
+  width: 6rem;
+  color: #3f51b5;
+  background: rgba(0, 0, 0, .25);
+}
+
+.battery-width {
+  background-color: azure;
+  border-radius: 25px;
+  height: 100%;
+}
+
+.battery>span {
+  position: absolute;
+  top: 8px;
+  right: 20px;
 }
 
 .battery .charging-icon {

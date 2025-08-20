@@ -96,7 +96,7 @@ body,
 .app {
   color: var(--global-clr);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.4fr 0.5fr 0.4fr;
   align-items: center;
   height: 100dvh;
   width: calc(100dvw - (var(--root-margin) * 2));
@@ -123,6 +123,10 @@ body,
   box-sizing: border-box;
   border-radius: 0.5rem;
   transition: width 2s ease-in-out, height 2s ease-in-out, background 1.5s ease-in-out;
+}
+
+.left {
+  margin-right: 25%;
 }
 
 .left,
@@ -233,6 +237,10 @@ body,
   font-size: medium;
 }
 
+.net-info, .net-io, .memory, .cpu {
+  font-size: small;
+}
+
 .net-info,
 .net-io {
   min-width: 4.75rem;
@@ -310,9 +318,9 @@ body,
 .network,
 .netgrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 0.75fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
+  grid-column-gap: 10px;
   grid-row-gap: 0px;
 }
 

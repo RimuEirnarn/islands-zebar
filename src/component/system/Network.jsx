@@ -55,12 +55,16 @@ export default function Network({ data = DEFAULT }) {
 
   const rx = reTransmit(RX.siValue / 8, RX.siUnit)
   const tx = reTransmit(TX.siValue / 8, TX.siUnit)
+  /** @type {string} */
+  const _net = network?.defaultGateway?.ssid || "???"
+
+  const net = _net.length <= 15 ? _net : _net.slice(0, 12).padEnd(15, '...')
 
   return (
     <div className="netgrid network">
       <div className="div1 net-info">
         {getNetworkIcon(network)}
-        {network?.defaultGateway?.ssid || "Unknown"}
+        {net}
       </div>
       <div className="div2 netiogrid net-io">
         <span className="ndiv1 net-read">{rx.value} {rx.unit} ↓</span>

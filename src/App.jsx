@@ -56,8 +56,8 @@ export default function App() {
   return (
     <div className={`sys-root ${isNight ? 'sys-night' : ''}`}>
       <div className='sys-div1 scooped-box'></div>
+      <Stars isNight={isNight} />
       <div className={`sys-div2 app ${isNight ? 'night' : ''}`}>
-        <Stars isNight={isNight} />
         <MediaIsland isNight={isNight} />
         <DateIsland date={output.date} isNight={isNight} click={toggleNight} clickable={duringNight()} />
         <SystemIsland

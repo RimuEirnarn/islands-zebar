@@ -1,0 +1,69 @@
+.sys-root {
+  background-color: var(--global-bg);
+  display: grid;
+  grid-template-columns: var(--root-margin) calc(100dvw - (var(--root-margin) * 2)) var(--root-margin);
+  grid-template-rows: 50px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  transition: background-color 0.75s, color 0.75s;
+}
+
+.sys-div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.sys-div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.sys-div3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.sysgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.sysgrid-span {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.network,
+.netgrid {
+  display: grid;
+  grid-template-columns: 1.7fr 1.3fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+}
+
+.netgrid>.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.netgrid>.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.netiogrid,
+.n2rowgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.netiogrid>.ndiv1,
+.n2rowgrid>.ndiv1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.netiogrid>.ndiv2,
+.n2rowgrid>.ndiv2 {
+  grid-area: 2 / 1 / 3 / 2;
+}

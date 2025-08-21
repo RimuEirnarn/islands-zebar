@@ -1,0 +1,54 @@
+@import url('./anim.css');
+
+.vlc-progress-container-child {
+  margin-top: 0.25rem;
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  cursor: var(--cursor-style);
+}
+
+.vlc-progress-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.vlc-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #0ff, #f0f, #0ff, #f0f, #0ff);
+  background-size: 300% 100%;
+  transition: background 0.15s ease-in;
+  transition: width 0.15s ease-out, background 1.5s ease-in-out;
+  z-index: 1;
+  position: relative;
+  cursor: var(--cursor-style);
+}
+
+.vlc-progress-bar.paused {
+  background: linear-gradient(90deg, #0ff, #0ff, #0ff);
+}
+
+.vlc-progress-bar.pulse {
+  animation: pulse 1.5s infinite ease-in-out, glow-move 12s infinite alternate-reverse;
+  box-shadow: 0 0 8px #0ff, 0 0 16px #f0f, 0 0 24px #0ff;
+}
+
+.vlc-progress-hover {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.vlc-progress-container:hover .vlc-progress-hover {
+  opacity: 1;
+}

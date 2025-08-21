@@ -22,8 +22,13 @@ export default function DateIsland({ date, isNight, click, clickable }) {
   const size = 35;
 
   return (
-    <div className={`center island ${isNight ? 'night-glow' : ""} ${clickable ? 'clickable' : ''}`} onClick={click}>
-      <img className="profile-img" src="/public/5296ae24d121972a1c031fca5fdbb7a0.jpg" alt="profile" width={size} height={size} />
+    <div className={`center island ${isNight ? 'night-glow' : ""}`}>
+      <img className={`profile-img ${clickable ? 'clickable' : ''}`}
+           src="/public/5296ae24d121972a1c031fca5fdbb7a0.jpg"
+           alt="profile"
+           width={size}
+           height={size}
+           onClick={click} />
       <div className={`sysgrid ${clickable ? 'clickable' : ""}`}>
         <div className="sysgrid-span">
           <div className="clock">{timed}</div>

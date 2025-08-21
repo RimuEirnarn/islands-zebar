@@ -59,7 +59,7 @@ export default function App() {
       <Stars isNight={isNight} />
       <div className={`sys-div2 app ${isNight ? 'night' : ''}`}>
         <MediaIsland isNight={isNight} />
-        <DateIsland date={output.date} isNight={isNight} click={toggleNight} clickable={duringNight()} />
+        <DateIsland date={output.date} isNight={isNight} click={toggleNight} clickable={true} />
         <SystemIsland
           isNight={isNight}
           network={output.network}

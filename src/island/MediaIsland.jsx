@@ -112,8 +112,8 @@ async function makeVlcObject(res) {
     title: artist ? `${artist} - ${title}` : title,
     meta: {
       name: title,
-      progress: json.position || NaN,
-      length: json.length || NaN
+      progress: json.position || 0,
+      length: json.length || 0
     },
     isPlaying
   }

@@ -62,7 +62,7 @@ export default function Network({ data = DEFAULT }) {
 
   return (
     <div className="netgrid network">
-      <div className="div1 net-info">
+    <div className="div1 net-info" title={`WiFi: ${_net}`}>
         {getNetworkIcon(network)}
         {net}
       </div>

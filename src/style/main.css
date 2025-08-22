@@ -14,7 +14,7 @@ body,
 #root {
   height: 100dvh;
   --cursor-style: pointer;
-  --root-margin: 9rem;
+  --root-margin: 4.5rem;
   --ba-rad: 40px;
   --global-bg: #FFCCEA;
   --global-clr: #121212;
@@ -75,7 +75,7 @@ p {
 .app {
   color: var(--global-clr);
   display: grid;
-  grid-template-columns: 0.4fr 0.5fr 0.4fr;
+  grid-template-columns: 0.45fr 0.5fr 0.45fr;
   align-items: center;
   height: 100dvh;
   width: calc(100dvw - (var(--root-margin) * 2));

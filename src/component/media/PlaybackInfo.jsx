@@ -14,7 +14,7 @@ function getCurrentPlaylistIndex(name, playlist) {
 
 export default function PlaybackInfo({ media, playlist }) {
   return (
-    <div className="playback-info">
+    <div className="playback-info" title={`Now playing: ${media.title}`}>
       <i className="nf nf-md-music_note"></i> {truncate(media.title, MAX_PLAYBACK_LENGTH)} | {formatNumber(media.meta.progress * 100)}% {`(${playlist ? getCurrentPlaylistIndex(media.meta.name, playlist) : -1}/${playlist?.length || -1})`}
     </div>
   )

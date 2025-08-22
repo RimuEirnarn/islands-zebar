@@ -35,7 +35,7 @@
 .network,
 .netgrid {
   display: grid;
-  grid-template-columns: 1.7fr 1.3fr;
+  grid-template-columns: 1.7fr 1.8fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 0px;

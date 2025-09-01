@@ -44,7 +44,7 @@ function mapper(unit, up) {
  * @returns
  */
 function reTransmit(value, unit) {
-  if (value < 1 && value > 0) return {value: formatNumber(value * 100), unit: mapper(unit, false)}
+  if (value < 1 && value > 0) return {value: formatNumber(value * 1000), unit: mapper(unit, false)}
   return {value: formatNumber(value), unit}
 }
 

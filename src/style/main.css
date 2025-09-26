@@ -352,3 +352,23 @@ p {
   cursor: pointer;
 }
 
+.expand-4rem {
+  animation: expand 0.2s ease-out;
+}
+
+.shrink-4rem {
+  animation: shrink 0.2s ease-out;
+}
+
+.text-expand {
+  animation: text-expand 0.2s ease-out;
+}
+
+.text-shrink {
+  animation: text-shrink 0.2s ease-out;
+}
+
+.msg {
+  font-family: 'Chewy', 'Roboto';
+  font-size: large;
+}

@@ -1,4 +1,3 @@
-
 @keyframes pulse {
   0% {
     filter: brightness(1.2);
@@ -22,6 +21,46 @@
     background-position: 100% 50%;
   }
 
+}
+
+@keyframes expand {
+  from {
+    width: 25.346%;
+  }
+
+  to {
+    width: 44%;
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 44%;
+  }
+
+  to {
+    width: 25.346%;
+  }
+}
+
+@keyframes text-expand {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes text-shrink {
+  from {
+    width: 100%
+  }
+
+  to {
+    width: 0%
+  }
 }
 
 @keyframes pulse-glow {

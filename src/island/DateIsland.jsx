@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react"
+import SystemPrompt from "../component/system/SystemPrompt"
+
 const DEFAULT_OBJ = {
   formatted: "XXX XX XXX XX.XX.XX"
 }
+
 
 /**
  *
@@ -20,20 +24,31 @@ export default function DateIsland({ date, isNight, click, clickable }) {
   }
   const timed = `${_timed.h}.${_timed.m}.${_timed.s}`
   const size = 35;
+  const [pr, set_pvisibility] = useState({use: false, mi: false})
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      set_pvisibility((prev => ({use: !prev.use, mi: !prev.use})))
+      console.log("this function is called")
+    }, 1000 * (30))
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <div className={`center island ${isNight ? 'night-glow' : ""}`}>
+    <div className={`center island ${isNight ? 'night-glow' : ""} ${pr.use ? 'expand-4rem' : 'shrink-4rem'}`}>
       <img className={`profile-img ${clickable ? 'clickable' : ''}`}
-           src="/public/5296ae24d121972a1c031fca5fdbb7a0.jpg"
-           alt="profile"
-           width={size}
-           height={size}
-           onClick={click} />
+        src="/public/5296ae24d121972a1c031fca5fdbb7a0.jpg"
+        alt="profile"
+        width={size}
+        height={size}
+        onClick={click} />
       <div className={`sysgrid ${clickable ? 'clickable' : ""}`}>
-        <div className="sysgrid-span">
-          <div className="clock">{timed}</div>
-          <div className="date">{output.formatted}</div>
-        </div>
+        {(!pr.use ?
+          <div className="sysgrid-span">
+            <div className="clock">{timed}</div>
+            <div className="date">{output.formatted}</div>
+          </div>
+          : <div className="sysgrid-span"> <SystemPrompt /> </div>)}
       </div>
     </div>)
 }

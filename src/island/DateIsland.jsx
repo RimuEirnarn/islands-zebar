@@ -24,12 +24,11 @@ export default function DateIsland({ date, isNight, click, clickable }) {
   }
   const timed = `${_timed.h}.${_timed.m}.${_timed.s}`
   const size = 35;
-  const [pr, set_pvisibility] = useState({use: false, mi: false})
+  const [pr, set_pvisibility] = useState({ use: false, mi: false })
 
   useEffect(() => {
     const interval = setInterval(() => {
-      set_pvisibility((prev => ({use: !prev.use, mi: !prev.use})))
-      console.log("this function is called")
+      set_pvisibility((prev => ({ use: !prev.use, mi: !prev.use })))
     }, 1000 * (30))
     return () => clearInterval(interval)
   }, [])
@@ -43,12 +42,11 @@ export default function DateIsland({ date, isNight, click, clickable }) {
         height={size}
         onClick={click} />
       <div className={`sysgrid ${clickable ? 'clickable' : ""}`}>
-        {(!pr.use ?
-          <div className="sysgrid-span">
-            <div className="clock">{timed}</div>
-            <div className="date">{output.formatted}</div>
-          </div>
-          : <div className="sysgrid-span"> <SystemPrompt /> </div>)}
+        <div className={`sysgrid-span ${pr.use ? 'anim-hidden' : ''}`}>
+          <div className="clock">{timed}</div>
+          <div className="date">{output.formatted}</div>
+        </div>
+        <div className={`sysgrid-span ${pr.use ? 'text-expand' : 'text-shrink'}`}> <SystemPrompt /> </div>
       </div>
     </div>)
 }

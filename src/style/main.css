@@ -128,6 +128,7 @@ p {
   justify-self: center;
   min-width: 25.346%;
   transition: box-shadow 2s ease-in-out;
+  overflow: hidden;
 }
 
 .right {
@@ -353,19 +354,30 @@ p {
 }
 
 .expand-4rem {
-  animation: expand 0.2s ease-out;
+  animation: expand 0.5s ease-out;
+  overflow: hidden;
 }
 
 .shrink-4rem {
-  animation: shrink 0.2s ease-out;
+  animation: shrink 0.5s ease-out;
+  overflow: hidden;
+  width: 30%;
 }
 
 .text-expand {
-  animation: text-expand 0.2s ease-out;
+  animation: text-expand 0.3s ease-out;
+  overflow: hidden;
 }
 
 .text-shrink {
-  animation: text-shrink 0.2s ease-out;
+  animation: text-shrink 0.1s ease-out;
+  overflow: hidden;
+  display: none;
+}
+
+.anim-hidden {
+  animation: visibility0 0.1s ease-out;
+  display: none;
 }
 
 .msg {

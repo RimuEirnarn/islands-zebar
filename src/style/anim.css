@@ -47,10 +47,14 @@
 @keyframes text-expand {
   from {
     width: 100%;
+    opacity: 0;
+    font-size: small;
   }
 
   to {
     width: 100%;
+    opacity: 1;
+    font-size: large;
   }
 }
 

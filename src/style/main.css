@@ -354,7 +354,7 @@ p {
 }
 
 .expand-4rem {
-  animation: expand 0.5s ease-out;
+  animation: expand 0.5s ease-in-out;
   overflow: hidden;
 }
 
@@ -365,13 +365,14 @@ p {
 }
 
 .text-expand {
-  animation: text-expand 0.3s ease-out;
+  animation: text-expand 0.3s ease-in-out;
   overflow: hidden;
 }
 
 .text-shrink {
   animation: text-shrink 0.1s ease-out;
   overflow: hidden;
+  opacity: 0;
   display: none;
 }
 
@@ -383,4 +384,5 @@ p {
 .msg {
   font-family: 'Chewy', 'Roboto';
   font-size: large;
+  text-wrap: pretty;
 }

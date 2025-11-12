@@ -17,6 +17,14 @@ const DEFAULT = {
     transmitted: {
       siValue: NaN,
       siUnit: "kB"
+    },
+    totalReceived: {
+      siValue: NaN,
+      siUnit: 'kB'
+    },
+    totalTransmitted: {
+      siValue: NaN,
+      siUnit: 'kB'
     }
   }
 }

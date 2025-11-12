@@ -5,6 +5,9 @@ const DEFAULT_OBJ = {
   formatted: "XXX XX XXX XX.XX.XX"
 }
 
+const timer = {
+  use: 0
+}
 
 /**
  *
@@ -26,12 +29,14 @@ export default function DateIsland({ date, isNight, click, clickable }) {
   const size = 35;
   const [pr, set_pvisibility] = useState({ use: false, mi: false })
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      set_pvisibility((prev => ({ use: !prev.use, mi: !prev.use })))
-    }, 1000 * (30))
-    return () => clearInterval(interval)
-  }, [])
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (!prev.mi && timer.use == 6) { set_pvisibility({use: true, mi: true}); timer.use = 0; return }
+  //     else if (!prev.mi && !timer.use) { timer.use += 1; return }
+  //     set_pvisibility((prev => ({ use: !prev.use, mi: prev.mi })))
+  //   }, 1000 * (5))
+  //   return () => clearInterval(interval)
+  // }, [])
 
   return (
     <div className={`center island ${isNight ? 'night-glow' : ""} ${pr.use ? 'expand-4rem' : 'shrink-4rem'}`}>

@@ -2,16 +2,19 @@ import {
   useState,
   useEffect,
 } from 'react';
-import MediaIsland from "./island/MediaIsland"
+// import MediaIsland from "./island/MediaIsland"
 import DateIsland from "./island/DateIsland"
 import SystemIsland from "./island/SystemIsland"
 import { useNightMode, duringNight } from './custom/useNight';
-import { useConfig } from './custom/useConfig';
+// import { useConfig } from './custom/useConfig';
 import Stars from './custom/Stars';
 import * as zebar from 'zebar';
+import JustName from './island/JustName';
+// import GlazeWM from './island/GlazeWM';
 
 const providers = zebar.createProviderGroup({
   host: { type: 'host' },
+  // glazewm: {type: 'glazewm'},
   network: { type: 'network' },
   cpu: { type: 'cpu' },
   date: { type: 'date', formatting: 'EEEE, d/MM' },
@@ -19,12 +22,12 @@ const providers = zebar.createProviderGroup({
   memory: { type: 'memory' },
   weather: { type: 'weather' },
   audio: { type: 'audio' },
-  media: { type: 'media' },
+  // media: { type: 'media' },
 });
 
 export default function App() {
   const [output, setOutput] = useState(providers.outputMap)
-  const [config, setConfig] = useConfig()
+  // const [config, setConfig] = useConfig()
   const [isNight, setNight] = useNightMode()
 
   useEffect(() => {
@@ -58,7 +61,9 @@ export default function App() {
       <div className='sys-div1 scooped-box'></div>
       <Stars isNight={isNight} />
       <div className={`sys-div2 app ${isNight ? 'night' : ''}`}>
-        <MediaIsland isNight={isNight} />
+        {/* <MediaIsland isNight={isNight} /> */}
+        {/* <GlazeWM glazewm={output.glazewm} /> */}
+        <JustName></JustName>
         <DateIsland date={output.date} isNight={isNight} click={toggleNight} clickable={true} />
         <SystemIsland
           isNight={isNight}
